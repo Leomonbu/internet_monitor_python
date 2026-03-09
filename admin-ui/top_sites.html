@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top Sitios Visitados</title>
+</head>
+<body>
+
+<h2>Top sitios visitados</h2>
+
+<table border="1">
+<tr>
+    <th>Sitio</th>
+    <th>Visitas</th>
+</tr>
+
+{% for site in sites %}
+<tr>
+    <td>{{ site._id }}</td>
+    <td>{{ site.total_visits }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>

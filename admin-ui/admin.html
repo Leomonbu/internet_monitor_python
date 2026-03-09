@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Internet Monitor</title>
+<style>
+
+body{
+font-family: Arial;
+background:#f4f4f4;
+padding:40px;
+}
+
+table{
+border-collapse: collapse;
+width:100%;
+background:white;
+}
+
+th,td{
+padding:10px;
+border:1px solid #ccc;
+text-align:left;
+}
+
+th{
+background:#333;
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>Historial de navegación</h2>
+
+<form method="get">
+
+Usuario:
+<input type="text" name="usuario" value="{{usuario or ''}}">
+
+Dominio:
+<input type="text" name="dominio" value="{{dominio or ''}}">
+
+<button type="submit">Buscar</button>
+
+</form>
+<br/>
+
+<table>
+
+<tr>
+<th>Usuario</th>
+<th>Dominio</th>
+<th>Fecha</th>
+</tr>
+
+{% for log in logs %}
+
+<tr>
+<td>{{log.usuario}}</td>
+<td>{{log.dominio}}</td>
+<td>{{log.fecha_servidor}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>
