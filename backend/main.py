@@ -3,10 +3,15 @@ from datetime import datetime, timezone
 from backend.database import logs_collection
 from backend.admin import router as admin_router
 from fastapi.responses import Response
+import os
+import uvicorn
 
 app = FastAPI()
 app.include_router(admin_router)
 
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
 
 @app.get("/")
 def root():
